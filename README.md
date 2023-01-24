@@ -2,7 +2,7 @@
 
 ## Part 1:
 Two dimension array as structure for game field is chosen because the size of game field is known in advance and all elements in algorithm are accessed by index.
-Also in order to store black holes, count of adjacent black holes and the sign whether cell is visible or not the "Cell" type was chosen. "Cell" is struct type, because of it all cells store close to each other in array (unlike classes).
+Also in order to store black holes, count of adjacent black holes and the sign whether cell is visible or not the "Cell" type was chosen. "Cell" is struct type, because of it all cells store close to each other in array memory (unlike classes).
 This type can be expanded with minimal efforts in the next versions of application (for example we can add flag functionality).
 
 
@@ -14,7 +14,7 @@ Because random can generate black hole places which has already been added it ne
 
 
 ## Part 3:
-After generating black holes the next task is to calculate the values of other cells. Because two dimension array is used, we can enumerate all array elements for O(1) time, and also count all nearby elements whish is black hole.
+After generating black holes the next task is to calculate the values of other cells. Because two dimension array is used, we can enumerate all array elements for O(n) time, and also count all nearby elements which is black hole.
 
 ## Part 4:
 "Flood fill" is used to write logic which updates cell after click. This algoritm is encapsulated in "RectangleGameField.OpenZeroCellsNearby" method.
