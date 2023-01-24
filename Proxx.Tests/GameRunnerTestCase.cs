@@ -6,7 +6,6 @@ using Proxx.Domain.Models;
 
 namespace Proxx.Tests;
 
-
 [TestFixture]
 public class GameRunnerTestCase
 {
