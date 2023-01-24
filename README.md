@@ -9,7 +9,7 @@ This type can be expanded with minimal efforts in the next versions of applicati
 ## Part 2:
 "RandomSequenceGenerator" class is created to populate the place of black holes. This class uses native .NET "Random" class to create pseudo random numbers in uniform distribution.
 "RandomSequenceGenerator.NextSequence" method returns single dimension array (to be precise "IEnumerable<>"). 
-Single dimension array is chosen because with this aproach we can write uniform algorithm in the next versions of application. For example we will need game field with rectangle, triangle or some three dimension shape form. In this case we just add converter from single dimension array to N-dimension array data structure without toching algorithm of random sequence generating.
+Single dimension array is chosen because with this aproach we can write uniform algorithm. For example in the next versions of application we will need game field with rectangle, triangle or some three dimension shape form. In this case we just add converter from single dimension array indexes to N-dimension array indexes without toching algorithm of random sequence generating.
 Because random can generate black hole places which has already been added it necessary to store this places in "HashSet". "HashSet" is chosen because it has O(1) time for accessing by key.
 
 
