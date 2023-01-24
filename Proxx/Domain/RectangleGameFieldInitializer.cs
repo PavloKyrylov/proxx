@@ -5,7 +5,7 @@ namespace Proxx;
 
 internal static class RectangleGameFieldInitializer
 {
-    internal static Cell[][] Initialize(IRandomSequenceGenerator randomSequenceGenerator, RectangleGameFieldSettings settings, TwoDimensionIndex initializationCell)
+    internal static Cell[][] Initialize(RandomSequenceGenerator randomSequenceGenerator, RectangleGameFieldSettings settings, TwoDimensionIndex initializationCell)
     {
         var (width, height, blackHoleCount) = settings;
         if (initializationCell.X < 0 || initializationCell.X >= width || initializationCell.Y < 0 || initializationCell.Y >= height)
@@ -29,7 +29,7 @@ internal static class RectangleGameFieldInitializer
         return field;
     }
 
-    private static void PopulateBlackHoles(Cell[][] field, int blackHoleCount, TwoDimensionIndex initializationCell, IRandomSequenceGenerator randomSequenceGenerator)
+    private static void PopulateBlackHoles(Cell[][] field, int blackHoleCount, TwoDimensionIndex initializationCell, RandomSequenceGenerator randomSequenceGenerator)
     {
         var cellsToExclude = field
             .EnumerateElementsNearby(initializationCell)

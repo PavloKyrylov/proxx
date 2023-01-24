@@ -1,8 +1,13 @@
 ﻿namespace Proxx.Common;
 
-internal class RandomSequenceGenerator : IRandomSequenceGenerator
+public class RandomSequenceGenerator
 {
-    private readonly Random _random = new Random();
+    private readonly Func<int, int> _nextInt;
+
+    public RandomSequenceGenerator(Func<int, int> nextInt)
+    {
+        _nextInt = nextInt;
+    }
 
     public IEnumerable<int> NextSequence(int maxValue, int sequenceLength, int[] elementsToExclude)
     {
@@ -11,7 +16,7 @@ internal class RandomSequenceGenerator : IRandomSequenceGenerator
         var notAvailableNumbers = new HashSet<int>(elementsToExclude);
         for (int i = 0; i < sequenceLength; i++)
         {
-            var number = _random.Next(maxValue - notAvailableNumbers.Count);
+            var number = _nextInt(maxValue - notAvailableNumbers.Count);
             notAvailableNumbers.Add(FindAvailableNumber(number, maxValue, notAvailableNumbers));
         }
         return notAvailableNumbers

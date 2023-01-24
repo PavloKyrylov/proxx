@@ -5,7 +5,7 @@ namespace Proxx.Domain;
 
 public class SquareGameField : RectangleGameField
 {
-    public SquareGameField(IRandomSequenceGenerator randomSequenceGenerator, SquareGameFieldSettings settings) : base(randomSequenceGenerator, settings)
+    public SquareGameField(RandomSequenceGenerator randomSequenceGenerator, SquareGameFieldSettings settings) : base(randomSequenceGenerator, settings)
     {
     }
 }

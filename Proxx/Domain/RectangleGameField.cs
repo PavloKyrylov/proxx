@@ -6,11 +6,11 @@ namespace Proxx.Domain;
 
 public class RectangleGameField : IGameField<TwoDimensionIndex>
 {
-    private readonly IRandomSequenceGenerator _randomSequenceGenerator;
+    private readonly RandomSequenceGenerator _randomSequenceGenerator;
     private readonly RectangleGameFieldSettings _settings;
     private Cell[][]? _field;
 
-    public RectangleGameField(IRandomSequenceGenerator randomSequenceGenerator, RectangleGameFieldSettings settings)
+    public RectangleGameField(RandomSequenceGenerator randomSequenceGenerator, RectangleGameFieldSettings settings)
     {
         _randomSequenceGenerator = randomSequenceGenerator;
         _settings = settings;
@@ -25,7 +25,7 @@ public class RectangleGameField : IGameField<TwoDimensionIndex>
 
         if (!_field.TryGetValue(index, out var cell))
         {
-            throw new InvalidOperationException();
+            throw new ArgumentOutOfRangeException(nameof(index));
         }
 
         if (cell.IsVisible)

@@ -8,7 +8,8 @@ public static class GameRunner
 {
     public static void RunGameWithSquareField(IGameIO<SquareGameFieldSettings, TwoDimensionIndex> gameIO)
     {
-        var randomSequenceGenerator = new RandomSequenceGenerator();
+        var random = new Random();
+        var randomSequenceGenerator = new RandomSequenceGenerator(random.Next);
         RunGame(gameIO, x => new SquareGameField(randomSequenceGenerator, x));
     }
 
